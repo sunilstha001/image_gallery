@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Galary</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    rel="stylesheet"
+    />
+    <style>
+        .active-image {
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body class="font-mono">
+    <div class="container mx-auto my-14 h-screen flex justify-center items-center">
+        <div class="flex flex-col lg:flex-row lg:space-x-8">
+            <div id="image-box" class="flex space-x-2">
+                <div class="flex flex-col space-y-2">
+                    <div class="h-[28rem] w-20 border-2 flex-col space-y-4">
+                        <div class="smallimage w-full cursor-pointer">
+                            <img id="img1" src="image1.webp" alt="" class="h-full w-full object-cover active-image">
+                        </div>
+                        <div class="smallimage w-full cursor-pointer">
+                            <img id="img2" src="image2.webp" alt="" class="h-full w-full object-cover">
+                        </div>
+                        <div class="smallimage w-full cursor-pointer">
+                            <img id="img3" src="image3.webp" alt="" class="h-full w-full object-cover">
+                        </div>
+                        <div class="smallimage w-full cursor-pointer">
+                            <img id="img4" src="image4.webp" alt="" class="h-full w-full object-cover">
+                        </div>
+                    </div>
+                </div>
+                <div id="fullimage" class="h-[28rem] w-full lg:w-96 border-2 border-black">
+                    <img src="image1.webp" alt="" id="displayed-image" class="h-full w-full object-cover">
+                </div>
+            </div>
+            <div class="my-10 lg:my-0 description flex flex-col space-y-3">
+                <h1 class="font-bold text-2xl">Bewakoof</h1>
+                <h1 class="text-gray-500">Work Hard Box Full Sleeve T-Shirt</h1>
+                <span>
+                    <button>
+                        <i class="ri-star-fill text-yellow-600"></i>
+                        <span>4.5</span>
+                    </button>
+                </span>
+                <div>
+                    <i class="ri-money-rupee-circle-line"></i>
+                    <span class="text-2xl font-bold">419</span>
+                    <span>
+                        <i class="ri-money-rupee-circle-line"></i>
+                        <del>599</del>
+                    </span>
+                    <span class="text-2xl font-bold text-green-500">30% OFF</span>
+                    <h1 class="text-xs text-gray-500">Inclusive of all taxes</h1>
+                </div>
+                <div>
+                    <span class="cursor-pointer bg-green-400 text-white px-2 py-1">BUY 3 FOR 999</span>
+                    <span class="cursor-pointer border-2 px-2 py-1">100% COTTON</span>
+                </div>
+                <div class="border-t-4 border-b-4 text-xs py-3">
+                    <p>TriBe members get an extra discount of <i class="ri-money-rupee-circle-line"></i>30 and FREE shipping.
+                        <br>Learn more
+                    </p>
+                </div>
+                <div class="flex justify-between">
+                    <h1 class="font-bold">SELECT SIZE</h1>
+                    <h2 class="text-blue-700 cursor-pointer">Size Guide</h2>
+                </div>
+                <div class="flex space-x-4">
+                    <div class="border border-black py-2 px-4 rounded-md cursor-pointer hover:border-sky-600 hover:bg-slate-100">
+                        <span>S</span>
+                    </div>
+                    <div class="border border-black py-2 px-4 rounded-md cursor-pointer hover:border-sky-600 hover:bg-slate-100">
+                        <span>M</span>
+                    </div>
+                    <div class="border border-black py-2 px-4 rounded-md cursor-pointer hover:border-sky-600 hover:bg-slate-100">
+                        <span>L</span>
+                    </div>
+                    <div class="border border-black py-2 px-4 rounded-md cursor-pointer hover:border-sky-600 hover:bg-slate-100">
+                        <span>XL</span>
+                    </div>
+                    <div class="border border-black py-2 px-4 rounded-md cursor-pointer hover:border-sky-600 hover:bg-slate-100">
+                        <span>XXL</span>
+                    </div>
+                </div>
+                <div class="flex space-x-6">
+                    <div class="my-4 py-1 px-8 bg-yellow-400 text-lg cursor-pointer flex items-center space-x-2">
+                        <i class="ri-shopping-bag-line"></i>
+                        <button class="text-lg">ADD TO BAG</button>
+                    </div>
+                    <div class="my-4 py-1 px-8 text-lg border-4 cursor-pointer">
+                        <i class="ri-heart-line text-md"></i>
+                        <button class="text-lg">WISHLIST</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let smallImages = document.querySelectorAll(".smallimage img");
+        console.log(smallImages)
+        let displayedImage = document.getElementById("displayed-image");
+
+        smallImages.forEach(image => {
+            image.addEventListener("click", () => {
+                displayedImage.src = image.src;
+
+                // To add and remove the  border
+                smallImages.forEach(img => {
+                    img.classList.remove("active-image")
+                });
+                image.classList.add("active-image");
+            });
+        });
+    </script>
+</body>
+</html>
